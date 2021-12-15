@@ -33,6 +33,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -76,13 +77,42 @@ public class Popup extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCE_FILE, Context.MODE_PRIVATE);
         mapButton = findViewById(R.id.map);
         imageOfTheDay = findViewById(R.id.img);
-        int Min = 1;
-        int Max = 6;
+        int Min = 0;
+        int Max = 5;
         int pos = Min + (int) (Math.random() * ((Max - Min) + 1));
-        String imageUri = "@drawable/" + foodType() + "_" + pos;  // where myresource (without the extension) is the file
-        int imageResource = getResources().getIdentifier(imageUri, null, getPackageName());
-        Drawable res = getResources().getDrawable(imageResource);
-        imageOfTheDay.setImageDrawable(res);
+        String[] breakfastUrls = new String[]{
+                "https://insanelygoodrecipes.com/wp-content/uploads/2020/12/Chocolate-Chip-Pancakes.png",
+                "https://simply-delicious-food.com/wp-content/uploads/2018/10/breakfast-board.jpg",
+                "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/masala-dosa-500x500.jpg",
+                "https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Breakfast-Wraps_EXPS_TOHPP19_35683_B08_23_6b.jpg",
+                "https://assets.bonappetit.com/photos/5bae794a56c47e4ca3babf6c/master/pass/unnamed.jpg",
+                "https://cdn.tatlerasia.com/asiatatler/i/ph/2021/05/07105034-gettyimages-1257260385_cover_1280x764.jpg"
+        };
+
+        String[] lunchUrls = new String[]{
+                "https://c1.staticflickr.com/1/271/32607495025_f45106f1e4_z.jpg",
+                "https://loveincorporated.blob.core.windows.net/contentimages/gallery/57bd6dab-c28f-4c83-b9e7-f4aa53bac815-alaska-tommys.jpg",
+                "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/sibyl_sunitha/Chinese_Chicken_Sweet_Corn_Soup_Recipe_.jpg",
+                "https://img-global.cpcdn.com/recipes/893101ba11fb18f7/1200x630cq70/photo.jpg",
+                "https://saladswithanastasia.com/wp-content/uploads/2020/10/GREEN-CORAL-SALAD-FEATURED-1.jpg",
+                "https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2019/05/black-forest-ham-subway-featured-051419.png"
+        };
+
+        String[] dinnerUrls = new String[]{
+                "https://www.eatthis.com/wp-content/uploads/sites/4/2020/06/chimichanga.jpg?quality=82&strip=all",
+                "https://myfoodbook.com.au/sites/default/files/collections_image/Family%20Dinner%20recipes.jpg",
+                "https://bakeitwithlove.com/wp-content/uploads/2021/05/Air-Fryer-Chicken-Nuggets-sq.jpg",
+                "https://i2.wp.com/www.dinedelicious.in/wp-content/uploads/2019/04/Instant-Kadai-Paneer.jpg?fit=614%2C614&ssl=1",
+                "https://iamafoodblog.b-cdn.net/wp-content/uploads/2020/07/cheesy-potato-balls-5178.jpg",
+                "https://c.ndtvimg.com/2020-01/pedb3bio_masala-soyabean_625x300_24_January_20.jpg"
+        };
+        String url = "";
+        String fType = foodType();
+        if (fType.equals("breakfast")) url = breakfastUrls[pos % 6];
+        else if (fType.equals("lunch")) url = lunchUrls[pos % 6];
+        else url = dinnerUrls[pos % 6];
+        Glide.with(Popup.this).load(R.drawable.giff).into(imageOfTheDay);
+        new AsyncFetch(imageOfTheDay, foodType()).execute(url);
         mapButton.setOnClickListener(v -> {
             String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", lati, longi);
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
