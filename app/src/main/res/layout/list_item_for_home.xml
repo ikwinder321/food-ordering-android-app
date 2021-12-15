@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background_color">
+
+    <ImageView
+        android:id="@+id/home_icon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:srcCompat="@drawable/wedding_6"
+        android:scaleType="centerCrop"
+        android:onClick="showCustomAlertDialog"/>
+
+    <LinearLayout
+        android:id="@+id/home_detail"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="120dp"
+        android:layout_toEndOf="@+id/home_icon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/home_food_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:text="Hello, world!!"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#000" />
+        <TextView
+            android:id="@+id/home_food_cost"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:text="$22"
+            android:textSize="24sp"
+            android:textColor="#000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <ImageButton
+                android:id="@+id/home_minus_button"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dp"
+                app:srcCompat="@drawable/minus_icon"
+                android:background="@drawable/rounded_corner"/>
+
+            <TextView
+                android:id="@+id/home_food_count"
+                android:layout_toEndOf="@+id/home_minus_button"
+                android:layout_width="24dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:text="1"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="24sp"/>
+            <ImageButton
+                android:id="@+id/home_plus_button"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/home_food_count"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="4dp"
+                app:srcCompat="@drawable/add_icon"
+                android:background="@drawable/rounded_corner"/>
+
+            <ImageButton
+                android:id="@+id/home_add_to_cart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/home_plus_button"
+                android:layout_marginStart="4dp"
+                app:srcCompat="@drawable/shopping_cart"
+                android:background="@drawable/rounded_corner"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="4dp"
+    android:background="@android:drawable/dialog_holo_light_frame"
+    tools:context="com.example.android.foodorderingapp.UserInputDetail">
+
+    <TextView
+        android:id="@+id/order_id_of_placed_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="2dp"
+        android:text="ORDER ID: 1535251704202153"
+        android:textColor="#387002"
+        android:textSize="12sp"/>
+    <TextView
+        android:id="@+id/date_of_placed_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_below="@+id/order_id_of_placed_orders"
+        android:text="ORDER DATE: 17-04-2021"
+        android:textColor="#387002"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/order_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:text="$52"
+        android:textSize="30sp"
+        android:textColor="#870000"/>
+
+</RelativeLayout>

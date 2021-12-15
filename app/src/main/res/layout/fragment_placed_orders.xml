@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.foodorderingapp.UserInputDetail">
+    <TextView
+        android:id="@+id/placed_orders_text"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center_vertical"
+        android:text="Placed Orders"
+        android:textSize="30sp"
+        android:textColor="@color/button_color"
+        android:textStyle="bold"/>
+    <ListView
+        android:id="@+id/placed_orders_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/placed_orders_text"
+        android:layout_marginBottom="4dp"
+        android:layout_marginHorizontal="4dp" />
+
+</RelativeLayout>
